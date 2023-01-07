@@ -1,5 +1,7 @@
 # Exploring the concepts of Hardhat
 
+Read more on [Hardhat Docs](https://hardhat.org/tutorial)
+
 `npm install`
 
 select Node version v18.13.0
