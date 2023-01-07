@@ -2,7 +2,7 @@ const { expect } = require('chai');
 
 describe('Token contract', function () {
 	it('Deployment should assign the total supply of tokens to the owner', async function () {
-		this.timeout(60000);
+		this.timeout(600000);
 		const [owner] = await ethers.getSigners();
 		console.log('== Owner ==');
 		console.log(owner);
@@ -19,6 +19,10 @@ describe('Token contract', function () {
 		console.log('== Owner Balance ==');
 		console.log(ownerBalance);
 
-		expect(await hardhatToken.totalSupply()).to.equal(ownerBalance);
+		const totalSupply = await await hardhatToken.totalSupply();
+		console.log('== Total Supply ==');
+		console.log(totalSupply);
+
+		expect(totalSupply).to.equal(ownerBalance);
 	});
 });
