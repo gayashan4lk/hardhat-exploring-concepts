@@ -2,6 +2,8 @@
 
 pragma solidity ^0.8.17;
 
+import "hardhat/console.sol";
+
 contract Token {
   string public name = "My Hardhat Token";
   string public symbol = "MHT";
@@ -14,10 +16,13 @@ contract Token {
   constructor() {
     balances[msg.sender] = totalSupply;
     owner = msg.sender;
+    console.log("This is my Token contract, HA HA HA!!!");
   }
 
   function transfer(address to, uint256 amount) external {
     require(balances[msg.sender] >= amount, "Not enough tokens");
+
+    console.log("Transfering from %s to %s %s tokens", msg.sender, to, amount);
 
     balances[msg.sender] -= amount;
     balances[to] += amount;
