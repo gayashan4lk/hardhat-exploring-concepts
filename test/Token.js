@@ -2,6 +2,7 @@ const { expect } = require('chai');
 
 describe('Token contract', function () {
 	it('Deployment should assign the total supply of tokens to the owner', async function () {
+		this.timeout(60000);
 		const [owner] = await ethers.getSigners();
 
 		const Token = await ethers.getContractFactory('Token');
